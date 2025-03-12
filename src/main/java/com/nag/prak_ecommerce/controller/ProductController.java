@@ -17,7 +17,7 @@ public class ProductController {
 
     @PostMapping
     public void addProduct(@RequestBody Map<String, Object> product) throws IOException {
-        openSearchProductService.addProduct(product);
+//        openSearchProductService.addProduct(product);
     }
 
     @DeleteMapping("/{id}")

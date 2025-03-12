@@ -28,9 +28,11 @@ public class OpenSearchService {
     private RestHighLevelClient restHighLevelClient;
 
     public List<Map<String, Object>> searchProducts(String indexName, String searchQuery) throws IOException {
+        System.out.println("inside product search service method");
         SearchRequest searchRequest = new SearchRequest(indexName);
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
-        searchSourceBuilder.query(QueryBuilders.matchQuery("title", searchQuery));
+//        searchSourceBuilder.query(QueryBuilders.matchQuery("name", searchQuery));
+        searchSourceBuilder.query(QueryBuilders.multiMatchQuery(searchQuery, "tags", "category", "name"));
         searchRequest.source(searchSourceBuilder);
         SearchResponse searchResponse = restHighLevelClient.search(searchRequest, RequestOptions.DEFAULT);
         SearchHits hits = searchResponse.getHits();
@@ -59,37 +61,37 @@ public class OpenSearchService {
         return results;
     }
 
-    public void addProduct(Map<String, Object> product) throws IOException {
-        String productId = (String) product.get("id"); // Assuming "id" field exists
-        String productJson = objectMapper.writeValueAsString(product);
-        IndexRequest request = new IndexRequest("products");
-        request.id(productId);
-        request.source(productJson, XContentType.JSON);
-        restHighLevelClient.index(request, RequestOptions.DEFAULT);
-    }
-
-    public void deleteProduct(String id) throws IOException {
-        DeleteRequest request = new DeleteRequest("products", id);
-        restHighLevelClient.delete(request, RequestOptions.DEFAULT);
-    }
-
-    public Map<String, Object> getProduct(String id) throws IOException {
-        GetRequest request = new GetRequest("products", id);
-        GetResponse response = restHighLevelClient.get(request, RequestOptions.DEFAULT);
-        return response.getSourceAsMap();
-    }
-
-    public List<Map<String, Object>> getAllProducts() throws IOException {
-        SearchRequest searchRequest = new SearchRequest("products");
-        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
-        searchSourceBuilder.query(new MatchAllQueryBuilder());
-        searchRequest.source(searchSourceBuilder);
-
-        SearchResponse searchResponse = restHighLevelClient.search(searchRequest, RequestOptions.DEFAULT);
-        List<Map<String, Object>> products = new ArrayList<>();
-        for (SearchHit hit : searchResponse.getHits().getHits()) {
-            products.add(hit.getSourceAsMap());
-        }
-        return products;
-    }
+//    public void addProduct(Map<String, Object> product) throws IOException {
+//        String productId = (String) product.get("id"); // Assuming "id" field exists
+//        String productJson = objectMapper.writeValueAsString(product);
+//        IndexRequest request = new IndexRequest("products");
+//        request.id(productId);
+//        request.source(productJson, XContentType.JSON);
+//        restHighLevelClient.index(request, RequestOptions.DEFAULT);
+//    }
+//
+//    public void deleteProduct(String id) throws IOException {
+//        DeleteRequest request = new DeleteRequest("products", id);
+//        restHighLevelClient.delete(request, RequestOptions.DEFAULT);
+//    }
+//
+//    public Map<String, Object> getProduct(String id) throws IOException {
+//        GetRequest request = new GetRequest("products", id);
+//        GetResponse response = restHighLevelClient.get(request, RequestOptions.DEFAULT);
+//        return response.getSourceAsMap();
+//    }
+//
+//    public List<Map<String, Object>> getAllProducts() throws IOException {
+//        SearchRequest searchRequest = new SearchRequest("products");
+//        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+//        searchSourceBuilder.query(new MatchAllQueryBuilder());
+//        searchRequest.source(searchSourceBuilder);
+//
+//        SearchResponse searchResponse = restHighLevelClient.search(searchRequest, RequestOptions.DEFAULT);
+//        List<Map<String, Object>> products = new ArrayList<>();
+//        for (SearchHit hit : searchResponse.getHits().getHits()) {
+//            products.add(hit.getSourceAsMap());
+//        }
+//        return products;
+//    }
 }
