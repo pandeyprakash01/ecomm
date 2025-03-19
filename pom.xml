@@ -104,6 +104,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>springbootAppBackend</finalName>
 	</build>
 
 </project>
