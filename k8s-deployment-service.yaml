@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: k8s-springboot-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: k8s-springboot-app
