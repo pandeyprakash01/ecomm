@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@CrossOrigin(origins = "http://front-end-s3.s3-website.ap-south-1.amazonaws.com/")
+
 @RequestMapping("/products")
 public class ProductController {
 

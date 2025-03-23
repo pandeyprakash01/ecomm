@@ -25,7 +25,7 @@ public class HomeController {
 
     @GetMapping("/product")
     public String home(){
-        return "welcome to home page";
+        return "welcome to home page again";
     }
 
     @GetMapping("/products/search")
