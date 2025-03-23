@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Map;
 import java.io.IOException;
-@CrossOrigin(origins = "http://front-end-s3.s3-website.ap-south-1.amazonaws.com/git status")
+@CrossOrigin(origins = "http://front-end-s3.s3-website.ap-south-1.amazonaws.com/")
 @RestController
 public class HomeController {
 
