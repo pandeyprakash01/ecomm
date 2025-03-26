@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Map;
 import java.io.IOException;
-@CrossOrigin(origins = "http://front-end-s3.s3-website.ap-south-1.amazonaws.com/")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://front-end-s3.s3-website.ap-south-1.amazonaws.com")
 @RestController
 public class HomeController {
 
@@ -23,14 +24,14 @@ public class HomeController {
         return "welcome ";
     }
 
-    @GetMapping("/product")
+    @GetMapping("/welcome")
     public String home(){
         return "welcome to home page again with new image";
     }
 
     @GetMapping("/products/search")
     public List<Map<String, Object>> searchProducts(@RequestParam String searchValue) throws IOException {
-        System.out.println("product keyword is :"+searchValue);
+//        System.out.println("product keyword is :"+searchValue);
         return openSearchService.searchProducts("products", searchValue);
     }
 

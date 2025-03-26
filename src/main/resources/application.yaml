@@ -1,0 +1,36 @@
+#spring.application.name=prak-ecommerce
+#opensearch_username=prakash
+#opensearch_password=Prakash@01
+#opensearch.host=search-ecomm01-j5sghsyoitrbf673tqernsdckq.eu-north-1.es.amazonaws.com
+##  https://search-movies-cwthim56fybd7tjiqdy7qa7uam.aos.eu-north-1.on.aws
+##  https://search-movies-cwthim56fybd7tjiqdy7qa7uam.eu-north-1.es.amazonaws.com
+#opensearch.port=443
+#opensearch.scheme=https
+
+spring:
+  application:
+    name:prak-ecommerce
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          cognito:
+#            client-id: 3n4forqpegmtnhijsf3f705ujs
+#            client-secret: 1b73djuc49djceqc2hif3u274dco1mvbkl0d1t6u3aursvql73lj
+#            scope:
+#              - email
+#              - openid
+#              - phone
+#            redirect-uri: http://localhost:4200/
+##           redirect-uri: https://d84l1y8p4kdic.cloudfront.net
+#        provider:
+#          cognito:
+#            issuerUri: https://cognito-idp.ap-south-1.amazonaws.com/ap-south-1_lFhzwa8Ty
+#            user-name-attribute: username
+
+opensearch_username: prakash
+opensearch_password: Prakash@01
+opensearch:
+  host: search-products-bvogaki5gxdp3trrxpidabh5ya.ap-south-1.es.amazonaws.com
+  port: 443
+  scheme: https
