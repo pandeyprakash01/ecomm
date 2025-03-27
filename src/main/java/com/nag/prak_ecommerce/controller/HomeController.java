@@ -12,7 +12,7 @@ import java.util.Map;
 import java.io.IOException;
 //@CrossOrigin(origins = "http://localhost:4200")
 //@CrossOrigin(origins = "http://front-end-s3.s3-website.ap-south-1.amazonaws.com")
-@CrossOrigin(origins ="https://d7tzaevtczo3x.cloudfront.net")
+//@CrossOrigin(origins ="https://vyi2nwp9j9.execute-api.ap-south-1.amazonaws.com/prod")
 @RestController
 public class HomeController {
 
