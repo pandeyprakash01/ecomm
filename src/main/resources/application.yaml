@@ -31,6 +31,6 @@ spring:
 opensearch_username: prakash
 opensearch_password: Prakash@01
 opensearch:
-  host: search-products-bvogaki5gxdp3trrxpidabh5ya.ap-south-1.es.amazonaws.com
+  host: search-ecomm01-llzy7wtvgjerdkntsqougq5ajq.ap-south-1.es.amazonaws.com
   port: 443
   scheme: https
